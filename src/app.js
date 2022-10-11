@@ -1,7 +1,7 @@
 /*
  * @LastEditors: Yx
- * @LastEditTime: 2022-10-11 22:23:42
- * @Description: 
+ * @LastEditTime: 2022-10-11 22:35:42
+ * @Description:
  * @Author: Yx
  * @Date: 2022-10-11 21:58:06
  * @FilePath: \node-koa2\src\app.js
@@ -14,8 +14,8 @@ const onerror = require("koa-onerror");
 const bodyparser = require("koa-bodyparser");
 const logger = require("koa-logger");
 
-const index = require("../routes/index");
-const users = require("../routes/users");
+const index = require("./routes/index");
+const users = require("./routes/users");
 
 // error handler
 onerror(app);
