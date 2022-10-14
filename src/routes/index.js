@@ -1,6 +1,6 @@
 /*
  * @LastEditors: Yx
- * @LastEditTime: 2022-10-11 22:37:44
+ * @LastEditTime: 2022-10-14 23:03:41
  * @Description:
  * @Author: Yx
  * @Date: 2022-10-11 21:58:06
@@ -11,6 +11,22 @@ const router = require("koa-router")();
 router.get("/", async (ctx, next) => {
   await ctx.render("index", {
     title: "Hello Koa 2!",
+    msg: "您好",
+    isMe: true,
+    blogList: [
+      {
+        id: 1,
+        title: "aaa",
+      },
+      {
+        id: 2,
+        title: "bbb",
+      },
+      {
+        id: 3,
+        title: "ccc",
+      },
+    ],
   });
 });
 

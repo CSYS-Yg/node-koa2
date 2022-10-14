@@ -1,11 +1,21 @@
+<!--
+ * @LastEditors: Yx
+ * @LastEditTime: 2022-10-14 23:03:38
+ * @Description: 
+ * @Author: Yx
+ * @Date: 2022-10-11 21:58:06
+ * @FilePath: \node-koa2\src\views\index.ejs
+-->
 <!DOCTYPE html>
 <html>
   <head>
     <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
   </head>
   <body>
     <h1><%= title %></h1>
-    <p>EJS Welcome to <%= title %></p>
+    <p><%= msg %></p>
+    <%- include('widgets/UserInfo',{ isMe }) %> <%- include('widgets/BlogList',{
+    blogList }) %>
   </body>
 </html>
