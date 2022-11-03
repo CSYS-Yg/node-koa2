@@ -1,5 +1,4 @@
 /**
- * @format
  * @LastEditors: Yx
  * @LastEditTime: 2022-11-01 23:34:30
  * @Description: sequelize 同步

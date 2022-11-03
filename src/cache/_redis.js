@@ -1,5 +1,4 @@
 /**
- * @format
  * @LastEditors: Yx
  * @LastEditTime: 2022-11-03 00:21:56
  * @Description:redis连接配置
