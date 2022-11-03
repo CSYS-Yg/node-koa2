@@ -34,7 +34,7 @@
     // "no-empty-label": "error", //禁止使用空label
     // "space-return-throw-case": 0, //return throw case后面要不要加空格
     // "no-param-reassign": "error", //禁止给参数重新赋值
-    "no-eq-null": "error", //禁止对null使用==或!=运算符
+    // "no-eq-null": "error", //禁止对null使用==或!=运算符
     "no-unused-vars": ["error", { "vars": "all", "args": "none" }], //不能有声明后未被使用的变量或参数
     // 手选配置结束
 
