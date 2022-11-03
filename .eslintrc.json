@@ -1,5 +1,8 @@
 {
-  "parser": "babel-eslint",
+  "parser": "@babel/eslint-parser",
+  "parserOptions": {
+    "requireConfigFile": false
+  },
   "env": {
     "es6": true,
     "commonjs": true,
@@ -11,7 +14,7 @@
       "error",
       "single",
       {
-        "allowTemplateLiterals": true
+        "allowTemplateLiterals": true //是否支持模板语法
       }
     ],
     "semi": ["error", "never"]

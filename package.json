@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "debug": "^4.1.1",
-    "ejs": "~2.3.3",
+    "ejs": "^3.1.8",
     "koa": "^2.7.0",
     "koa-bodyparser": "^4.2.1",
     "koa-convert": "^1.2.0",
@@ -25,10 +25,11 @@
     "sequelize": "^6.25.3"
   },
   "devDependencies": {
-    "babel-eslint": "^10.1.0",
+    "@babel/core": "^7.19.6",
+    "@babel/eslint-parser": "^7.19.1",
     "cross-env": "^7.0.3",
     "eslint": "^8.26.0",
-    "nodemon": "^1.19.1",
+    "nodemon": "^2.0.20",
     "pre-commit": "^1.2.2"
   },
   "pre-commit": [
