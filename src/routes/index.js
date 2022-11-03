@@ -1,15 +1,16 @@
-/**
+/*
  * @LastEditors: Yx
- * @LastEditTime: 2022-10-14 23:03:41
- * @Description:
+ * @LastEditTime: 2022-11-03 23:40:28
+ * @Description: 
  * @Author: Yx
- * @Date: 2022-10-11 21:58:06
+ * @Date: 2022-11-03 22:15:28
  * @FilePath: \node-koa2\src\routes\index.js
  */
 
 const router = require('koa-router')()
 
 router.get('/', async (ctx, next) => {
+  debugger
   await ctx.render('index', {
     title: 'Hello Koa 2!',
     msg: '您好',
