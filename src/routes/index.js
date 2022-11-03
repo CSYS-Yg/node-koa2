@@ -42,6 +42,7 @@ router.get('/json', async (ctx, next) => {
 // 动态参数
 router.get('/profile/:userName', async (ctx, next) => {
   const { userName } = ctx.params
+
   ctx.body = {
     title: 'this is profile page',
     userName,
