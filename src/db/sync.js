@@ -1,12 +1,11 @@
-/**
- * @LastEditors: Yx
- * @LastEditTime: 2022-11-01 23:34:30
- * @Description: sequelize 同步
- * @Author: Yx
- * @Date: 2022-11-01 23:33:21
- * @FilePath: \node-koa2\src\db\sync.js
+/*
+ * @LastEditors  : Yx
+ * @LastEditTime : 2022-11-04 09:12:09
+ * @Description  : sequelize 同步
+ * @Author       : Yx
+ * @Date         : 2022-11-03 09:09:02
+ * @FilePath     : \node-koa2\src\db\sync.js
  */
-
 const seq = require('./seq.js')
 
 // 测试链接

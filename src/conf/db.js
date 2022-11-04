@@ -1,12 +1,11 @@
-/**
- * @LastEditors: Yx
- * @LastEditTime: 2022-11-01 23:15:32
- * @Description: 存储配置文件
- * @Author: Yx
- * @Date: 2022-10-25 22:17:39
- * @FilePath: \node-koa2\src\conf\db.js
+/*
+ * @LastEditors  : Yx
+ * @LastEditTime : 2022-11-04 09:11:28
+ * @Description  : 存储配置文件
+ * @Author       : Yx
+ * @Date         : 2022-11-03 09:09:02
+ * @FilePath     : \node-koa2\src\conf\db.js
  */
-
 const { isProd } = require('../utils/env')
 
 let REDIS_CONF = {

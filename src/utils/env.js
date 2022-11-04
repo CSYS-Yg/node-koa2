@@ -1,12 +1,11 @@
-/**
- * @LastEditors: Yx
- * @LastEditTime: 2022-11-01 23:31:01
- * @Description:环境变量
- * @Author: Yx
- * @Date: 2022-10-25 22:25:35
- * @FilePath: \node-koa2\src\utils\env.js
+/*
+ * @LastEditors  : Yx
+ * @LastEditTime : 2022-11-04 09:13:10
+ * @Description  : 环境变量
+ * @Author       : Yx
+ * @Date         : 2022-11-03 09:09:02
+ * @FilePath     : \node-koa2\src\utils\env.js
  */
-
 const ENV = process.env.NODE_ENV
 
 module.exports = {

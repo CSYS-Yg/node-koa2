@@ -1,12 +1,11 @@
 /*
- * @LastEditors: Yx
- * @LastEditTime: 2022-11-03 23:40:28
- * @Description: 
- * @Author: Yx
- * @Date: 2022-11-03 22:15:28
- * @FilePath: \node-koa2\src\routes\index.js
+ * @LastEditors  : Yx
+ * @LastEditTime : 2022-11-04 09:14:36
+ * @Description  : 默认路由配置
+ * @Author       : Yx
+ * @Date         : 2022-11-04 09:08:56
+ * @FilePath     : \node-koa2\src\routes\index.js
  */
-
 const router = require('koa-router')()
 
 router.get('/', async (ctx, next) => {
@@ -33,14 +32,14 @@ router.get('/', async (ctx, next) => {
 })
 
 router.get('/json', async (ctx, next) => {
-  // const session = ctx.session
-  // if (session.viewNum == null) {
-  //   session.viewNum = 0
-  // }
-  // session.viewNum++
+  const session = ctx.session
+  if (session.viewNum == null) {
+    session.viewNum = 0
+  }
+  session.viewNum++
   ctx.body = {
     title: 'koa2 json',
-    // viewNum: session.viewNum,
+    viewNum: session.viewNum,
   }
 })
 

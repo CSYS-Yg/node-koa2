@@ -1,12 +1,11 @@
-/**
- * @LastEditors: Yx
- * @LastEditTime: 2022-11-01 23:31:57
- * @Description: sequelize 实例
- * @Author: Yx
- * @Date: 2022-11-01 23:21:46
- * @FilePath: \node-koa2\src\db\seq.js
+/*
+ * @LastEditors  : Yx
+ * @LastEditTime : 2022-11-04 09:11:55
+ * @Description  : sequelize 实例
+ * @Author       : Yx
+ * @Date         : 2022-11-03 09:09:02
+ * @FilePath     : \node-koa2\src\db\seq.js
  */
-
 const Sequelize = require('sequelize')
 const { isProd, isTest } = require('../utils/env')
 const { MYSQL_CONF } = require('../conf/db')

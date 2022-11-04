@@ -1,12 +1,11 @@
-/**
- * @LastEditors: Yx
- * @LastEditTime: 2022-11-03 00:21:56
- * @Description:redis连接配置
- * @Author: Yx
- * @Date: 2022-10-25 22:20:16
- * @FilePath: \node-koa2\src\cache\_redis.js
+/*
+ * @LastEditors  : Yx
+ * @LastEditTime : 2022-11-04 09:13:24
+ * @Description  : redis 连接配置
+ * @Author       : Yx
+ * @Date         : 2022-11-03 09:09:02
+ * @FilePath     : \node-koa2\src\cache\_redis.js
  */
-
 const redis = require('redis')
 const { REDIS_CONF } = require('../conf/db')
 
