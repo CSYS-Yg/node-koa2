@@ -1,7 +1,7 @@
 /**
  * @LastEditors: Yx
  * @LastEditTime: 2022-10-11 22:35:42
- * @Description:
+ * @Description: app.js
  * @Author: Yx
  * @Date: 2022-10-11 21:58:06
  * @FilePath: \node-koa2\src\app.js
@@ -18,12 +18,21 @@ const session = require('koa-generic-session')
 const redisStore = require('koa-redis')
 
 const { REDIS_CONF } = require('./conf/db')
+const { isProd } = require('./utils/env')
 
+// 定义 导入页面
 const index = require('./routes/index')
 const users = require('./routes/users')
+const errorViewRouter = require('./routes/view/error')
 
 // error handler
-onerror(app)
+let onerrorConf = {}
+if (isProd) {
+  onerrorConf = {
+    redirect: '/error',
+  }
+}
+onerror(app, onerrorConf)
 
 // middlewares
 app.use(
@@ -67,9 +76,10 @@ app.use(
 //   console.log(`${ctx.method} ${ctx.url} - ${ms}ms`);
 // });
 
-// routes
+// routes 注册
 app.use(index.routes(), index.allowedMethods())
 app.use(users.routes(), users.allowedMethods())
+app.use(errorViewRouter.routes(), errorViewRouter.allowedMethods())
 
 // error-handling
 app.on('error', (err, ctx) => {

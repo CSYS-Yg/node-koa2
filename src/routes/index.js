@@ -1,6 +1,6 @@
 /*
  * @LastEditors  : Yx
- * @LastEditTime : 2022-11-04 09:14:36
+ * @LastEditTime : 2022-11-05 10:29:28
  * @Description  : 默认路由配置
  * @Author       : Yx
  * @Date         : 2022-11-04 09:08:56
@@ -32,6 +32,7 @@ router.get('/', async (ctx, next) => {
 })
 
 router.get('/json', async (ctx, next) => {
+  // throw Error() 抛出错误 进入路由页面
   const session = ctx.session
   if (session.viewNum == null) {
     session.viewNum = 0
