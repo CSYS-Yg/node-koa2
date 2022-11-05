@@ -29,6 +29,7 @@ const errorViewRouter = require('./routes/view/error')
 let onerrorConf = {}
 if (isProd) {
   onerrorConf = {
+    // 错误重定向至错误页面
     redirect: '/error',
   }
 }
