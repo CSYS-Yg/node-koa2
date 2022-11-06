@@ -1,12 +1,13 @@
 /*
  * @LastEditors  : Yx
- * @LastEditTime : 2022-11-05 10:29:28
+ * @LastEditTime : 2022-11-06 18:09:49
  * @Description  : 默认路由配置
  * @Author       : Yx
  * @Date         : 2022-11-04 09:08:56
  * @FilePath     : \node-koa2\src\routes\index.js
  */
 const router = require('koa-router')()
+// const dayjs = require('dayjs')
 
 router.get('/', async (ctx, next) => {
   debugger
@@ -47,7 +48,6 @@ router.get('/json', async (ctx, next) => {
 // 动态参数
 router.get('/profile/:userName', async (ctx, next) => {
   const { userName } = ctx.params
-
   ctx.body = {
     title: 'this is profile page',
     userName,
@@ -58,6 +58,8 @@ router.get('/profile/:userName', async (ctx, next) => {
 
 router.get('/loadMore/:userName/:pageIndex', async (ctx, next) => {
   const { userName, pageIndex } = ctx.params
+  // const date1 = dayjs(userName)
+  // let time = date1.diff(pageIndex, 'month', true)
   ctx.body = {
     title: 'this is loadMore API',
     userName,
