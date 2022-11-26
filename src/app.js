@@ -1,10 +1,10 @@
-/**
- * @LastEditors: Yx
- * @LastEditTime: 2022-10-11 22:35:42
- * @Description: app.js
- * @Author: Yx
- * @Date: 2022-10-11 21:58:06
- * @FilePath: \node-koa2\src\app.js
+/*
+ * @LastEditors  : Yx
+ * @LastEditTime : 2022-11-26 15:05:43
+ * @Description  : app.js
+ * @Author       : Yx
+ * @Date         : 2022-10-11 21:58:06
+ * @FilePath     : \node-koa2\src\app.js
  */
 
 const Koa = require('koa')
@@ -22,7 +22,7 @@ const { isProd } = require('./utils/env')
 
 // 定义 导入页面
 const index = require('./routes/index')
-const users = require('./routes/users')
+const userViewRouter = require('./routes/view/users')
 const errorViewRouter = require('./routes/view/error')
 
 // error handler
@@ -79,7 +79,8 @@ app.use(
 
 // routes 注册
 app.use(index.routes(), index.allowedMethods())
-app.use(users.routes(), users.allowedMethods())
+app.use(userViewRouter.routes(), userViewRouter.allowedMethods())
+// 404 放在最后注册
 app.use(errorViewRouter.routes(), errorViewRouter.allowedMethods())
 
 // error-handling
