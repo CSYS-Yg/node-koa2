@@ -1,6 +1,6 @@
 /*
  * @LastEditors  : Yx
- * @LastEditTime : 2022-11-04 09:11:55
+ * @LastEditTime : 2022-11-27 02:40:03
  * @Description  : sequelize 实例
  * @Author       : Yx
  * @Date         : 2022-11-03 09:09:02
@@ -9,7 +9,7 @@
 const Sequelize = require('sequelize')
 const { isProd, isTest } = require('../utils/env')
 const { MYSQL_CONF } = require('../conf/db')
-const { host, user, password, databse } = MYSQL_CONF
+const { host, user, password, database } = MYSQL_CONF
 
 const conf = {
   host,
@@ -29,7 +29,7 @@ if (isProd) {
     idle: 10000, // 如果一个连接池 10 秒内未被使用，则释放
   }
 }
-const seq = new Sequelize(databse, user, password, conf)
+const seq = new Sequelize(database, user, password, conf)
 
 // 生产环境 连接池
 
