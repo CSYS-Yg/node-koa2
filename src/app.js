@@ -1,6 +1,6 @@
 /*
  * @LastEditors  : Yx
- * @LastEditTime : 2022-11-26 15:05:43
+ * @LastEditTime : 2022-11-27 13:27:29
  * @Description  : app.js
  * @Author       : Yx
  * @Date         : 2022-10-11 21:58:06
@@ -23,6 +23,7 @@ const { isProd } = require('./utils/env')
 // 定义 导入页面
 const index = require('./routes/index')
 const userViewRouter = require('./routes/view/users')
+const userAPIRouter = require('./routes/aoi/user')
 const errorViewRouter = require('./routes/view/error')
 
 // error handler
@@ -79,6 +80,7 @@ app.use(
 
 // routes 注册
 app.use(index.routes(), index.allowedMethods())
+app.use(userAPIRouter.routes(), userAPIRouter.allowedMethods())
 app.use(userViewRouter.routes(), userViewRouter.allowedMethods())
 // 404 放在最后注册
 app.use(errorViewRouter.routes(), errorViewRouter.allowedMethods())
