@@ -1,6 +1,6 @@
 /*
  * @LastEditors  : Yx
- * @LastEditTime : 2022-11-27 13:27:29
+ * @LastEditTime : 2022-12-13 20:23:41
  * @Description  : app.js
  * @Author       : Yx
  * @Date         : 2022-10-11 21:58:06
@@ -17,13 +17,14 @@ const logger = require('koa-logger')
 const session = require('koa-generic-session')
 const redisStore = require('koa-redis')
 
+const { SESSION_SECRET_KEY } = require('./conf/secretKeys')
 const { REDIS_CONF } = require('./conf/db')
 const { isProd } = require('./utils/env')
 
 // 定义 导入页面
 const index = require('./routes/index')
 const userViewRouter = require('./routes/view/users')
-const userAPIRouter = require('./routes/aoi/user')
+const userAPIRouter = require('./routes/api/user')
 const errorViewRouter = require('./routes/view/error')
 
 // error handler
@@ -53,7 +54,7 @@ app.use(
 )
 
 // session 配置
-app.keys = ['UIsdf_7878#$']
+app.keys = [SESSION_SECRET_KEY]
 app.use(
   session({
     key: 'weibo.sid', // cookie name 默认是 `koa.sid`
