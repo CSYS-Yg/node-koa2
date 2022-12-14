@@ -1,10 +1,10 @@
 /*
  * @LastEditors  : Yx
- * @LastEditTime : 2022-12-06 20:33:01
+ * @LastEditTime : 2022-12-14 10:46:24
  * @Description  : res 的数据模型
  * @Author       : Yx
  * @Date         : 2022-12-06 20:28:06
- * @FilePath     : \node-koa2\src\db\model\ResModel.js
+ * @FilePath     : \node-koa2\src\model\ResModel.js
  */
 
 class BaseModer {
@@ -22,7 +22,7 @@ class BaseModer {
 /**
  *成功的数据模型
  */
-class SuccessModes extends BaseModer {
+class SuccessModel extends BaseModer {
   constructor(data = {}) {
     super({
       errno: 0,
@@ -34,7 +34,7 @@ class SuccessModes extends BaseModer {
 /**
  * 失败的数据模型
  */
-class ErrorModes extends BaseModer {
+class ErrorModel extends BaseModer {
   constructor({ errno, message }) {
     super({
       errno,
@@ -44,6 +44,6 @@ class ErrorModes extends BaseModer {
 }
 
 module.exports = {
-  SuccessModes,
-  ErrorModes,
+  SuccessModel,
+  ErrorModel,
 }

@@ -1,6 +1,6 @@
 /*
  * @LastEditors  : Yx
- * @LastEditTime : 2022-12-13 20:22:36
+ * @LastEditTime : 2022-12-14 10:46:52
  * @Description  : user 业务逻辑处理
  * @Author       : Yx
  * @Date         : 2022-11-27 13:30:21
@@ -8,7 +8,7 @@
  */
 
 const { getUserInfo, createUser } = require('../services/user')
-const { SuccessModes, ErrorModes } = require('../model/ResModel')
+const { SuccessModel, ErrorModel } = require('../model/ResModel')
 const { registerUserNameNotExistInfo, registerUserNameExistInfo, registerFailInfo } = require('../model/ErrorInfo')
 const doCrypto = require('../utils/cryp')
 /**
@@ -20,11 +20,11 @@ async function isExist(userName) {
   const userInfo = await getUserInfo(userName)
   if (userInfo) {
     // 已存在
-    return new SuccessModes(userInfo)
+    return new SuccessModel(userInfo)
   }
   if (!userInfo) {
     // 不存在
-    return new ErrorModes(registerUserNameNotExistInfo)
+    return new ErrorModel(registerUserNameNotExistInfo)
   }
   // 统一返回格式
 }
@@ -39,7 +39,7 @@ async function register({ userName, password, gender }) {
   const userInfo = await getUserInfo(userName)
   if (userInfo) {
     // 用户名已存在
-    return new ErrorModes(registerUserNameExistInfo)
+    return new ErrorModel(registerUserNameExistInfo)
   }
   try {
     await createUser({
@@ -47,10 +47,10 @@ async function register({ userName, password, gender }) {
       password: doCrypto(password),
       gender,
     })
-    return new SuccessModes()
+    return new SuccessModel()
   } catch (ex) {
     console.error(ex.message, ex.stack)
-    return new ErrorModes(registerFailInfo)
+    return new ErrorModel(registerFailInfo)
   }
 }
 
