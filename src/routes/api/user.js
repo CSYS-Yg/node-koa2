@@ -1,13 +1,13 @@
 /*
  * @LastEditors  : Yx
- * @LastEditTime : 2022-12-14 10:07:44
+ * @LastEditTime : 2022-12-14 11:07:09
  * @Description  : user API 路由。做好接收参数，解析参数，返回参数。业务实现交给控制器
  * @Author       : Yx
  * @Date         : 2022-11-27 13:21:54
  * @FilePath     : \node-koa2\src\routes\api\user.js
  */
 
-const { isExist, register } = require('../../controller/user')
+const { isExist, register, login } = require('../../controller/user')
 const userValidate = require('../../validator/user')
 const { genValidator } = require('../../middlewares/validator')
 
@@ -26,6 +26,12 @@ router.post('/register', genValidator(userValidate), async (ctx, next) => {
 router.post('/isExist', async (ctx, next) => {
   const { userName } = ctx.request.body
   ctx.body = await isExist(userName)
+})
+
+// 登录路由
+router.post('/login', genValidator(userValidate), async (ctx, next) => {
+  const { userName, password } = ctx.request.body
+  ctx.body = await login(ctx, userName, password)
 })
 
 module.exports = router
