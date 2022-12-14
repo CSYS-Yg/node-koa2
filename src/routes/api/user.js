@@ -1,6 +1,6 @@
 /*
  * @LastEditors  : Yx
- * @LastEditTime : 2022-12-14 11:07:09
+ * @LastEditTime : 2022-12-14 14:03:52
  * @Description  : user API 路由。做好接收参数，解析参数，返回参数。业务实现交给控制器
  * @Author       : Yx
  * @Date         : 2022-11-27 13:21:54
@@ -29,7 +29,7 @@ router.post('/isExist', async (ctx, next) => {
 })
 
 // 登录路由
-router.post('/login', genValidator(userValidate), async (ctx, next) => {
+router.post('/login', async (ctx, next) => {
   const { userName, password } = ctx.request.body
   ctx.body = await login(ctx, userName, password)
 })

@@ -1,6 +1,6 @@
 /*
  * @LastEditors  : Yx
- * @LastEditTime : 2022-12-14 11:10:17
+ * @LastEditTime : 2022-12-14 13:56:44
  * @Description  : user 业务逻辑处理
  * @Author       : Yx
  * @Date         : 2022-11-27 13:30:21
@@ -70,6 +70,7 @@ async function login(ctx, userName, password) {
   // 调用 services 获取数据
   const userInfo = await getUserInfo(userName, doCrypto(password))
   if (!userInfo) {
+    console.log('🚀 ~ file: user.js:73 ~ login ~ userInfo', userInfo)
     // 登录失败
     return new ErrorModel(loginFailInfo)
   }
