@@ -1,13 +1,13 @@
 /*
  * @LastEditors  : Yx
- * @LastEditTime : 2022-12-14 14:51:15
+ * @LastEditTime : 2022-12-15 10:31:31
  * @Description  : 默认路由配置
  * @Author       : Yx
  * @Date         : 2022-11-04 09:08:56
  * @FilePath     : \node-koa2\src\routes\index.js
  */
 const router = require('koa-router')()
-const { loginRedirect, loginCheck } = require('../middlewares/loginChecks')
+const { loginRedirect } = require('../middlewares/loginChecks')
 // const dayjs = require('dayjs')
 
 router.get('/', loginRedirect, async (ctx, next) => {
@@ -33,7 +33,7 @@ router.get('/', loginRedirect, async (ctx, next) => {
   })
 })
 
-router.get('/json', loginCheck, async (ctx, next) => {
+router.get('/json', async (ctx, next) => {
   // throw Error() 抛出错误 进入路由页面
   const session = ctx.session
   if (session.viewNum == null) {
@@ -42,7 +42,7 @@ router.get('/json', loginCheck, async (ctx, next) => {
   session.viewNum++
   ctx.body = {
     title: 'koa2 json',
-    viewNum: session.viewNum,
+    // viewNum: session.viewNum,
   }
 })
 

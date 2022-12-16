@@ -1,19 +1,20 @@
 /*
  * @LastEditors  : Yx
- * @LastEditTime : 2022-12-14 13:56:44
+ * @LastEditTime : 2022-12-15 10:47:49
  * @Description  : user 业务逻辑处理
  * @Author       : Yx
  * @Date         : 2022-11-27 13:30:21
  * @FilePath     : \node-koa2\src\controller\user.js
  */
 
-const { getUserInfo, createUser } = require('../services/user')
+const { getUserInfo, createUser, deleteUser } = require('../services/user')
 const { SuccessModel, ErrorModel } = require('../model/ResModel')
 const {
   registerUserNameNotExistInfo,
   registerUserNameExistInfo,
   registerFailInfo,
   loginFailInfo,
+  deleteUserFailInfo,
 } = require('../model/ErrorInfo')
 const doCrypto = require('../utils/cryp')
 /**
@@ -80,8 +81,22 @@ async function login(ctx, userName, password) {
   return new SuccessModel()
 }
 
+/**
+ * 删除当前用户
+ * @param {string} userName 用户名
+ */
+async function deleteCurUser(userName) {
+  const result = await deleteUser(userName)
+  if (result) {
+    // 成功
+    return new SuccessModel()
+  }
+  // 失败
+  return new ErrorModel(deleteUserFailInfo)
+}
 module.exports = {
   isExist,
   register,
   login,
+  deleteCurUser,
 }

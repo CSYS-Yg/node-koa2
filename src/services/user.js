@@ -1,6 +1,6 @@
 /*
  * @LastEditors  : Yx
- * @LastEditTime : 2022-12-14 13:52:58
+ * @LastEditTime : 2022-12-15 10:45:05
  * @Description  : 未备注
  * @Author       : Yx
  * @Date         : 2022-11-27 13:36:07
@@ -54,7 +54,22 @@ async function createUser({ userName, password, gender = 3, nickName }) {
   return result.dataValues
 }
 
+/**
+ * 删除用户
+ * @param {string} userName 用户名
+ */
+async function deleteUser(userName) {
+  const result = await User.destroy({
+    where: {
+      userName,
+    },
+  })
+  // result 返回删除行数
+  return result > 0
+}
+
 module.exports = {
   getUserInfo,
   createUser,
+  deleteUser,
 }

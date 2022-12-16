@@ -1,6 +1,6 @@
 /*
  * @LastEditors  : Yx
- * @LastEditTime : 2022-12-14 14:53:21
+ * @LastEditTime : 2022-12-15 10:51:57
  * @Description  : 登录验证的中间件
  * @Author       : Yx
  * @Date         : 2022-12-14 14:25:43
@@ -11,7 +11,7 @@ const { loginCheckFailInfo } = require('../model/ErrorInfo')
 
 /**
  * API 登录验证
- * @param {Object} ctx ctx
+ * @param {object} ctx ctx
  * @param {function} next next
  * @returns
  */
@@ -25,6 +25,12 @@ async function loginCheck(ctx, next) {
   ctx.body = new ErrorModel(loginCheckFailInfo)
 }
 
+/**
+ * 检测未登录跳转的登录页面
+ * @param {object} ctx ctx
+ * @param {function} next
+ * @returns
+ */
 async function loginRedirect(ctx, next) {
   if (ctx.session && ctx.session.userInfo) {
     // 已经登录
