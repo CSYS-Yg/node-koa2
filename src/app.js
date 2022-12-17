@@ -1,12 +1,13 @@
 /*
  * @LastEditors  : Yx
- * @LastEditTime : 2022-12-13 20:23:41
+ * @LastEditTime : 2022-12-17 17:56:15
  * @Description  : app.js
  * @Author       : Yx
  * @Date         : 2022-10-11 21:58:06
  * @FilePath     : \node-koa2\src\app.js
  */
 
+const path = require('path')
 const Koa = require('koa')
 const app = new Koa()
 const views = require('koa-views')
@@ -16,6 +17,7 @@ const bodyparser = require('koa-bodyparser')
 const logger = require('koa-logger')
 const session = require('koa-generic-session')
 const redisStore = require('koa-redis')
+const koaStatic = require('koa-static')
 
 const { SESSION_SECRET_KEY } = require('./conf/secretKeys')
 const { REDIS_CONF } = require('./conf/db')
@@ -45,7 +47,8 @@ app.use(
 )
 app.use(json())
 app.use(logger())
-app.use(require('koa-static')(__dirname + '/public'))
+app.use(koaStatic(__dirname + '/public'))
+app.use(koaStatic(path.join(__dirname, '..', 'uploadFiles')))
 
 app.use(
   views(__dirname + '/views', {

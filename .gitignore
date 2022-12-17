@@ -107,3 +107,4 @@ dist
 
 # 不同步文件
 .vscode
+uploadFiles
