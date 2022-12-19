@@ -1,6 +1,6 @@
 /*
  * @LastEditors  : Yx
- * @LastEditTime : 2022-12-17 17:56:15
+ * @LastEditTime : 2022-12-19 10:10:54
  * @Description  : app.js
  * @Author       : Yx
  * @Date         : 2022-10-11 21:58:06
@@ -26,8 +26,10 @@ const { isProd } = require('./utils/env')
 // 定义 导入页面
 const index = require('./routes/index')
 const userViewRouter = require('./routes/view/users')
-const userAPIRouter = require('./routes/api/user')
 const errorViewRouter = require('./routes/view/error')
+// 定义 导入API
+const userAPIRouter = require('./routes/api/user')
+const utilsAPIRouter = require('./routes/api/utils')
 
 // error handler
 let onerrorConf = {}
@@ -84,8 +86,12 @@ app.use(
 
 // routes 注册
 app.use(index.routes(), index.allowedMethods())
-app.use(userAPIRouter.routes(), userAPIRouter.allowedMethods())
+// 页面注册
 app.use(userViewRouter.routes(), userViewRouter.allowedMethods())
+// 接口注册
+app.use(userAPIRouter.routes(), userAPIRouter.allowedMethods())
+app.use(utilsAPIRouter.routes(), utilsAPIRouter.allowedMethods())
+
 // 404 放在最后注册
 app.use(errorViewRouter.routes(), errorViewRouter.allowedMethods())
 
